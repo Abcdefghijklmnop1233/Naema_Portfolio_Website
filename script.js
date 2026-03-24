@@ -212,7 +212,7 @@ if (cvBtn) {
     // it will open the PDF in a new tab because of `target = '_blank'`.
     const a = document.createElement('a');
     a.href = cvPath;
-    a.setAttribute('download', 'Naema_Omar_CV.pdf');
+    a.setAttribute('download', 'Naema_cv.pdf');
     a.target = '_blank';
     document.body.appendChild(a);
     a.click();
