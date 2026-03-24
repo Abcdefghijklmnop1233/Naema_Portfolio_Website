@@ -197,18 +197,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* ----------------------------------------------------------
-     7. CV DOWNLOAD BUTTON
-  ---------------------------------------------------------- */
-  const cvBtn = document.getElementById('cvDownloadBtn');
+ /* ----------------------------------------------------------
+   7. CV DOWNLOAD BUTTON
+---------------------------------------------------------- */
+const cvBtn = document.getElementById('cvDownloadBtn');
 
-  if (cvBtn) {
-    cvBtn.addEventListener('click', () => {
-      // In a real project: replace the alert with window.open('your-cv.pdf')
-      // e.g., window.open('assets/naema-omar-cv.pdf', '_blank');
-      alert('🎉 CV Download\n\nIn your final website, replace this with:\nwindow.open("naema-omar-cv.pdf", "_blank")');
-    });
-  }
+// Path to the CV file (file is in project root)
+const cvPath = 'Naema_cv.pdf';
+
+if (cvBtn) {
+  cvBtn.addEventListener('click', (e) => {
+    // Trigger a download using an anchor with the `download` attribute.
+    // This prefers downloading the file; if the browser ignores `download`
+    // it will open the PDF in a new tab because of `target = '_blank'`.
+    const a = document.createElement('a');
+    a.href = cvPath;
+    a.setAttribute('download', 'Naema_Omar_CV.pdf');
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+}
 
 
   /* ----------------------------------------------------------
